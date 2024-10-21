@@ -17,11 +17,11 @@ type OnchainStoreProviderReact = {
 };
 
 const products: Product[] = [
-  { id: 'product1', name: `'BUILDER' JACKET`, price: 0.04, image: jacketImage },
+  { id: 'product1', name: `'BUILDER' JACKET`, price: 0.02, image: jacketImage },
   {
     id: 'product2',
     name: `'DND, I'M BUILDING' AIRPODS`,
-    price: 0.01,
+    price: 0.02,
     image: airpodsImage,
   },
   {
@@ -33,7 +33,7 @@ const products: Product[] = [
   {
     id: 'product4',
     name: `'HYDRATED TO BUILD' BOTTLE`,
-    price: 0.01,
+    price: 0.02,
     image: bottleImage,
   },
 ];

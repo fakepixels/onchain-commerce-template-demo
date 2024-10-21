@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useOnchainStoreContext } from './OnchainStoreProvider';
-import { Pay, PayButton } from '@coinbase/onchainkit/pay';
-import type { LifecycleStatus } from '@coinbase/onchainkit/pay';
+import { Checkout, CheckoutButton, CheckoutStatus } from '@coinbase/onchainkit/checkout';
+import type { LifecycleStatus } from '@coinbase/onchainkit/checkout';
 import useCreateCharge from 'src/hooks/useCreateCharge';
 
 export default function OnchainStoreCart() {
@@ -33,9 +33,7 @@ export default function OnchainStoreCart() {
       description,
       pricing_type: 'fixed_price',
       local_price: {
-        // NOTE: The values are set to zero on the template as we're not actually looking to sell anything here.
-        // To test with real values, replace with totalSum.toString() in real app
-        amount: '0',
+        amount: '0.02',
         currency: 'USD',
       },
     };
@@ -51,18 +49,17 @@ export default function OnchainStoreCart() {
           </span>
           <div className="flex w-full grow flex-col items-center justify-between gap-2 px-4 sm:flex-row sm:gap-0 md:w-auto lg:px-6">
             <h2 className="font-bold text-lg md:w-11/12 ">
-              TOTAL {totalSum.toFixed(2)} USDC
+              TOTAL {totalSum.toString()} USDC
             </h2>
             <div className="w-64">
-              <Pay onStatus={handleStatusChange} chargeHandler={chargeHandler}>
-                <PayButton
+              <Checkout onStatus={handleStatusChange} chargeHandler={chargeHandler}>
+                <CheckoutButton
                   coinbaseBranded={true}
                   text="Pay with Crypto"
                   className="mt-0"
-                  // NOTE: comment back in to disable $0 amount in real app
-                  // disabled={!totalSum}
                 />
-              </Pay>
+                <CheckoutStatus />
+              </Checkout>
             </div>
           </div>
         </div>
