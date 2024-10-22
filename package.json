@@ -46,5 +46,8 @@
     "typescript": "5.6.3",
     "utf-8-validate": "^6.0.3",
     "vitest": "^2.0.1"
+  },
+  "resolutions": {
+    "@coinbase/wallet-sdk": "npm:@lukasrosario/wallet-sdk@4.1.0-local.10"
   }
 }
