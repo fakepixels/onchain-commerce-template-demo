@@ -55,10 +55,8 @@ export default function OnchainStoreCart() {
               <Checkout onStatus={handleStatusChange} chargeHandler={chargeHandler}>
                 <CheckoutButton
                   coinbaseBranded={true}
-                  text="Pay with Crypto"
-                  className="mt-0"
                 />
-                <CheckoutStatus />
+                <CheckoutStatus/>
               </Checkout>
             </div>
           </div>
